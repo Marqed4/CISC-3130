@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-private class ArrayStringBoundedList implements StringBoundedList {
+public class ArrayStringBoundedList implements StringBoundedList {
     private String[] internalArray;
     private int size;
 
@@ -80,44 +80,44 @@ private class ArrayStringBoundedList implements StringBoundedList {
         sb.append(internalArray[size - 1]).append("]");
         return sb.toString();
     }
-}
 
-void main() {
-    ArrayStringBoundedList list = new ArrayStringBoundedList(5);
-    list.add("first");
-    list.add("second");
-    list.add("third");
-    list.set(2, "fourth");
-    list.set(1, "second");
-    list.add("fifth");
-    list.add("fifth");
+    void main() {
+        ArrayStringBoundedList list = new ArrayStringBoundedList(5);
+        list.add("first");
+        list.add("second");
+        list.add("third");
+        list.set(2, "fourth");
+        list.set(1, "second");
+        list.add("fifth");
+        list.add("fifth");
 
-    System.out.println(list.indexOf("fourth"));
+        System.out.println(list.indexOf("fourth"));
 
-    System.out.println(list);
-    System.out.println(list.lastIndexOf("second"));
-    System.out.println(list.lastIndexOf("first"));
-    System.out.println(list.getFirst());
-    System.out.println(list.getLast());
-    System.out.println(list.isEmpty());
-    System.out.println(list.isFull());
-    System.out.println(list.size());
-    System.out.println(list.capacity());
-    list.clear();
-    System.out.println(list.size());
-    System.out.println(list.isEmpty());
-    System.out.println(list.capacity());
-    System.out.println(list);
-    list.add("seventh");
-    System.out.println(list.size());
-    list.add("eighth");
-    System.out.println(list.size());
-    list.add("ninth");
-    System.out.println(list.size());
-    list.add("first");
-    System.out.println(list.size());
-    list.add("second");
-    System.out.println(list);
+        System.out.println(list);
+        System.out.println(list.lastIndexOf("second"));
+        System.out.println(list.lastIndexOf("first"));
+        System.out.println(list.getFirst());
+        System.out.println(list.getLast());
+        System.out.println(list.isEmpty());
+        System.out.println(list.isFull());
+        System.out.println(list.size());
+        System.out.println(list.capacity());
+        list.clear();
+        System.out.println(list.size());
+        System.out.println(list.isEmpty());
+        System.out.println(list.capacity());
+        System.out.println(list);
+        list.add("seventh");
+        System.out.println(list.size());
+        list.add("eighth");
+        System.out.println(list.size());
+        list.add("ninth");
+        System.out.println(list.size());
+        list.add("first");
+        System.out.println(list.size());
+        list.add("second");
+        System.out.println(list);
 //    list.add("third");
-    System.out.println(list.set(0, "twenty-four"));
+        System.out.println(list.set(0, "twenty-four"));
+    }
 }
