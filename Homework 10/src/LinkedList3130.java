@@ -334,6 +334,8 @@ class myDemo {
         list.add(7, 9);
         System.out.println();
         System.out.println(list.size());
+        String x = list.toString();
+        System.out.println(x);
 
         long finish = System.nanoTime();
         System.out.println(( "Program has taken: " + (finish - start) / 1_000_000) + " milliseconds");
