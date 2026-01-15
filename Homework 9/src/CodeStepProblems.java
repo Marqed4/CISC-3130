@@ -32,3 +32,6 @@ public class CodeStepProblems {
     }
 }
 
+//problems that gave me tracing difficulty.
+//compared answers and traced until satisfactory.
+
