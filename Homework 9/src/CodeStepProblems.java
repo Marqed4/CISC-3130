@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class CodeStepProblems {
@@ -34,4 +35,3 @@ public class CodeStepProblems {
 
 //problems that gave me tracing difficulty.
 //compared answers and traced until satisfactory.
-
