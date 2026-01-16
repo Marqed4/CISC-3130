@@ -42,7 +42,7 @@ public class UsingIterators {
     }
 
     //4
-    public <E> void removeDuplicatesFromOccurance(SequencedCollection<E> collection) {
+    public <E> void removeDuplicatesFromOccurence(SequencedCollection<E> collection) {
         Iterator<E> it = collection.iterator();
         HashSet<E> set = new HashSet<>();
 
@@ -104,7 +104,7 @@ public class UsingIterators {
                 "ZOWIE EC2B", "SUPERLIGHT G-PRO WIRELESS"));
 
 
-        removeDuplicatesFromOccurance(list1);
+        removeDuplicatesFromOccurence(list1);
         IO.println((list1));
 
         list2 = new ArrayList<>(List.of(5, 4, 3, 2, 1));
