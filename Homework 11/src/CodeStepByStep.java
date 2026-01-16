@@ -1,6 +1,5 @@
-
-
 import java.util.*;
+import java.io.*;
 
 public class CodeStepByStep {
 
@@ -43,12 +42,42 @@ public class CodeStepByStep {
         Set<Integer> auxSet = new HashSet<>();
         HashSet<Integer> auxHashSet = new HashSet<>();
 
-        for (Set<Integer> setting : table) {
-
+        for (Set<Integer> settings : table) {
+            auxHashSet.addAll(settings);
         }
+
+        for (Integer x : auxHashSet) {
+            auxSet.add(x);
+        }
+
+        return auxSet;
     }
 
-    void main() {
+    //https://www.codestepbystep.com/r/problem/view/java/collections/set/wordCount
+    public int wordCount(String file_name) throws IOException {
+        Scanner scan = new Scanner(new File(file_name));
+        HashSet<String> set = new HashSet<>();
+
+        while (scan.hasNext()) {
+            set.add(scan.next());
+        }
+
+        return set.size();
+    }
+
+    //https://leetcode.com/problems/contains-duplicate/description/
+    public boolean containsDuplicate(int[] nums) {
+
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int x : nums) {
+            set.add(x);
+        }
+
+        return set.size() != nums.length;
+    }
+
+    void main() throws IOException {
         Set<String> set = new HashSet<>(List.of("Stapler", "Paper", "Pen", "Pencil")); //7
         System.out.println(maxLength(set));
 
@@ -59,5 +88,9 @@ public class CodeStepByStep {
         List<Integer> otherList = new ArrayList<>(List.of(5, 5, 4, 4, 50000));
         System.out.println(numInCommon(list, otherList));
 
+        System.out.println(wordCount("C:\\Users\\Derpe\\IdeaProjects\\3130\\Homework 11\\Adventures of Huckleberry Finn.txt"));
+
+        int[] nums = new int[]{1, 2, 3, 2, 5};
+        System.out.println(containsDuplicate(nums));
     }
 }
