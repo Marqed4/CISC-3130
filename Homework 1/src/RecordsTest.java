@@ -1,7 +1,9 @@
+package Homework_1;
+
 public class RecordsTest {
     void main() {
-        Name person = new Name("Zachery", "Francis");
-        PhoneNumber whatsapp = new PhoneNumber("917", "615", "5474");
+        Name person = new Name("Penny", "Blake");
+        PhoneNumber whatsapp = new PhoneNumber("956", "623", "5535");
 
         System.out.println(person);
         System.out.println(whatsapp);
