@@ -49,8 +49,16 @@ public class CodeStepByStepMethods {
         map.put("Amanda", "Camp");
         map.put("Meghan", "Miller");
         map.put("Hal", "Perkins");
-
+        map.put("Brenda", "Miller");
         System.out.println(hasDuplicateValue(map));
+
+        List<String> list2 = new ArrayList<>(List.of("duck", "duck", "duck", "goose"));
+        List<String> list3 = new ArrayList<>(List.of("duck", "duck", "goose"));
+        System.out.println(hasThree(list2)); //true
+        System.out.println(hasThree(list3)); //false
+
+        System.out.println(uniqueOccurrences(new int[] {1, 2, 2, 2, 3, 3, 3})); //false
+        System.out.println(uniqueOccurrences(new int[] {1, 2, 2, 4, 4, 4, 4, 3, 3, 3})); //true
     }
 
     //https://www.codestepbystep.com/r/problem/view/java/collections/map/CountNames
@@ -111,5 +119,43 @@ public class CodeStepByStepMethods {
             }
         }
         return false;
+    }
+
+    //https://www.codestepbystep.com/r/problem/view/java/collections/map/hasThree
+    public boolean hasThree(List<String> tokens) {
+        HashMap<String, Integer> map = new HashMap<>();
+
+        for (String token : tokens) {
+            map.put(token, map.getOrDefault(token, 0) + 1);
+
+            if (map.containsValue(3)) return true;
+        }
+        return false;
+    }
+
+    /*<------ LeetCode Solutions ------>*/
+
+    //https://leetcode.com/problems/unique-number-of-occurrences/
+    public boolean uniqueOccurrences(int[] arr) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int i : arr) {
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+
+        System.out.println(map);
+
+        int index = 0;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (index < arr.length - 1) {
+                if (set.contains(arr[index])) {
+                    return false;
+                } else {
+                    set.add(entry.getKey());
+                }
+            }
+        }
+        return true;
     }
 }
