@@ -61,18 +61,12 @@ public class HashMultiset<E> implements Multiset<E> {
 
     @Override
     public int removeAllOccurrences(E element) {
-
         if (internal_map.containsKey(element)) {
-
             int foo = internal_map.get(element);
-
             internal_map.remove(element);
-
             size -= foo;
             return foo;
-
         } else {
-
             return 0;
         }
     }
