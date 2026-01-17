@@ -56,14 +56,6 @@ public class CodeStepByStepMethods {
         List<String> list3 = new ArrayList<>(List.of("duck", "duck", "goose"));
         System.out.println(hasThree(list2)); //true
         System.out.println(hasThree(list3)); //false
-
-        System.out.println(uniqueOccurrences(new int[]{1, 2, 2, 2, 3, 3, 3})); //false
-        System.out.println(uniqueOccurrences(new int[]{1, 2, 2, 4, 4, 4, 4, 3, 3, 3})); //true
-
-        System.out.println(sumOfUnique(new int[]{1, 2, 3, 2})); //5
-
-        System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1}, 3)); //true
-        System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1, 2, 3}, 2)); //false
     }
 
     //https://www.codestepbystep.com/r/problem/view/java/collections/map/CountNames
@@ -134,101 +126,6 @@ public class CodeStepByStepMethods {
             map.put(token, map.getOrDefault(token, 0) + 1);
 
             if (map.containsValue(3)) return true;
-        }
-        return false;
-    }
-
-    /*<------ LeetCode Solutions ------>*/
-
-    //https://leetcode.com/problems/unique-number-of-occurrences/
-    public boolean uniqueOccurrences(int[] arr) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        HashSet<Integer> set = new HashSet<>();
-
-        for (int i : arr) {
-            map.put(i, map.getOrDefault(i, 0) + 1);
-        }
-
-//        System.out.println(map);
-
-        int index = 0;
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (set.contains(entry.getValue())) {
-                return false;
-            } else {
-                set.add(entry.getValue());
-            }
-        }
-        return true;
-    }
-
-    //https://leetcode.com/problems/sum-of-unique-elements/
-    public int sumOfUnique(int[] nums) {
-
-        HashMap<Integer, Integer> map = new HashMap<>();
-        HashSet<Integer> set = new HashSet<>();
-
-        for (int i : nums) {
-            map.put(i, map.getOrDefault(i, 0) + 1);
-        }
-
-//        System.out.println(map);
-
-        int sum = 0;
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() < 2) {
-                sum += entry.getKey();
-            }
-        }
-        return sum;
-    }
-
-    /*<------ Not Needed For Tests ------>*/
-
-    //https://leetcode.com/problems/contains-duplicate-ii/
-
-    //nums[i] == nums[j] and abs(i - j) <= k
-    //I think this just means if said number is within distance of itself, measured by itself. (NO)
-    //if any number is within K range of itself... this problem is worded badly.
-    //easier to be solved without a Set or Map... especially O(n) conditions.
-    public boolean containsNearbyDuplicate(int[] nums, int k) {
-
-        //O(n^2) Solution
-        //Very Slow, very ugly LMAO
-//        for (int i : nums) {
-//                int hops = 0;
-//                for (int j = i + 1; j < nums.length; j++) {
-//                    if (hops == k) {
-//                        break;
-//                    } else {
-//                        if (nums[j] == nums[i]) {
-//                            return true;
-//                        }
-//                    }
-//                    hops++;
-//                }
-//            }
-//        return false;
-
-        //O(n), HashMap Solution
-        /*I think you can ask if the map contains a key find its original index
-        * the next time it's found you subtract the original index from the current index
-        * let that <= K and you return true. If it doesn't = key move on, but update the
-        * last index of said number. If it doesn't contain the key, add the key and move on.
-        * When you have gone through the entire list of integers return false.
-        * */
-
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (!map.containsKey(nums[i])) {
-                map.put(nums[i], i);
-            } else {
-                if (i - map.get(nums[i]) <= k) {
-                    return true;
-                } else {
-                    map.put(nums[i], i);
-                }
-            }
         }
         return false;
     }
