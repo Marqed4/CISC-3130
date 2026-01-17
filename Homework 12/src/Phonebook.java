@@ -40,11 +40,15 @@ public class Phonebook {
     public void remove(Name name, PhoneNumber phoneNumber) {
         if (map.containsKey(name)) {
             map.get(name).remove(phoneNumber);
+
+            if (map.get(name).isEmpty()) {
+                map.remove(name);
+            }
         }
     }
 
     public Set<PhoneNumber> lookup(Name name) {
-        return map.get(name);
+            return map.getOrDefault(name, Set.of());
     }
 
     public Set<Name> reverseLookup(PhoneNumber phoneNumber) {
