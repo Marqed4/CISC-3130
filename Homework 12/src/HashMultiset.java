@@ -80,8 +80,15 @@ public class HashMultiset<E> implements Multiset<E> {
     @Override
     public int remove(E element, int occurrences) throws IllegalArgumentException {
         if (occurrences <= 0) throw new IllegalArgumentException();
+        if (!internal_map.containsKey(element)) return 0;
 
         int foo = internal_map.get(element);
+
+        if (occurrences >= foo) {
+            removeAllOccurrences(element);
+            return foo;
+        }
+
         internal_map.put(element, internal_map.getOrDefault(element, 0) - occurrences);
         size -= occurrences;
 
