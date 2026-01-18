@@ -53,5 +53,4 @@ public class BinaryTreeHomework {
         levelOrderListHelper(root.right, level + 1, list);
     }
 
-    ArrayList<ArrayList<Integer>> levelOrder(BinaryTreeNode<E> root) {}
 }
