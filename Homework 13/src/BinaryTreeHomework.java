@@ -1,3 +1,4 @@
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +35,11 @@ public class BinaryTreeHomework {
 
     //aka Breadth First
     public static <E> List<List<E>> levelOrderList(BinaryTreeNode<E> root) {
-
+        List<List<E>> lists = new ArrayList<>();
+        levelOrderListHelper(root, 0, lists);
+        return lists;
     }
+
 
     public static <E> void levelOrderListHelper(BinaryTreeNode<E> root, int level, List<List<E>> list) {
 
@@ -52,5 +56,4 @@ public class BinaryTreeHomework {
         levelOrderListHelper(root.left, level + 1, list);
         levelOrderListHelper(root.right, level + 1, list);
     }
-
 }
