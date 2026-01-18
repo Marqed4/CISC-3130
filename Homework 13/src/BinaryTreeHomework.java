@@ -4,7 +4,7 @@ import java.util.List;
 
 public class BinaryTreeHomework {
 
-    public class BinaryTreeNode<E> {
+    public static class BinaryTreeNode<E> {
         public E data;
         public BinaryTreeNode<E> left, right;
 
@@ -27,10 +27,11 @@ public class BinaryTreeHomework {
 
     public static <E> void preorderListHelper(BinaryTreeNode<E> root, ArrayList<E> list) {
         if (root == null) {
+            return;
+        }
             list.add(root.data);
             preorderListHelper(root.left, list);
             preorderListHelper(root.right, list);
-        }
     }
 
     //aka Breadth First
@@ -55,5 +56,44 @@ public class BinaryTreeHomework {
 
         levelOrderListHelper(root.left, level + 1, list);
         levelOrderListHelper(root.right, level + 1, list);
+    }
+
+    public static <E> int countLeaves(BinaryTreeNode<E> root) {
+        return countLeavesHelper(root, 0);
+    }
+
+    public static <E> int countLeavesHelper(BinaryTreeNode<E> root, int nodeCount) {
+        if (root == null) {
+            return 0;
+        }
+
+        if (root.left == null && root.right == null) {
+            return 1;
+        }
+
+        return countLeavesHelper(root.left, nodeCount) + countLeavesHelper(root.right, nodeCount);
+    }
+
+    void main() {
+        BinaryTreeNode<Integer> test_root = new BinaryTreeNode<>(15,
+                new BinaryTreeNode<>(3,
+                        new BinaryTreeNode<>(3,
+                                new BinaryTreeNode<>(null), new BinaryTreeNode<>(null)),
+                        new BinaryTreeNode<>(10,
+                                new BinaryTreeNode<>(null), new BinaryTreeNode<>(16))),
+                new BinaryTreeNode<>(4,
+                        new BinaryTreeNode<>(8,
+                                new BinaryTreeNode<>(null), new BinaryTreeNode<>(null)),
+                        new BinaryTreeNode<>(2,
+                                new BinaryTreeNode<>(null), new BinaryTreeNode<>(9,
+                                new BinaryTreeNode<>(null), new BinaryTreeNode<>(12))))); // 10 nodes total
+
+        System.out.println(countLeaves(test_root));
+
+        List<Integer> list = new ArrayList<>();
+        list = preorderList(test_root);
+
+        System.out.println(list);
+
     }
 }
