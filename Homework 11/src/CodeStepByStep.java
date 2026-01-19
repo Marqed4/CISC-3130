@@ -15,6 +15,20 @@ public class CodeStepByStep {
         return max;
     }
 
+    //utilizing hashset
+    public int maxLength1(Set<String> strings) {
+
+        HashSet<String> set = new HashSet<>(strings);
+
+        int max = 0;
+        for (String s : set) {
+            if (s.length() > max) {
+                max = s.length();
+            }
+        }
+        return max;
+    }
+
     //https://www.codestepbystep.com/r/problem/view/java/collections/set/numUniqueValues
     public int numUniqueValues(List<Integer> ints) {
         HashSet<Integer> set = new HashSet<>(ints);
