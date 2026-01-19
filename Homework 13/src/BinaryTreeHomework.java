@@ -41,6 +41,17 @@ public class BinaryTreeHomework {
         return list;
     }
 
+    public static <E> void postorderListHelper(BinaryTreeNode<E> root, List<E> list) {
+        if (root == null) {
+            return;
+        }
+
+        postorderListHelper(root.left, list);
+        postorderListHelper(root.right, list);
+
+        list.add(root.data);
+    }
+
     public static <E> List<E> inorderList(BinaryTreeNode<E> root) {
         List<E> list = new ArrayList<>();
         inorderListHelper(root, list);
@@ -55,17 +66,6 @@ public class BinaryTreeHomework {
         inorderListHelper(root.left, list);
         list.add(root.data);
         inorderListHelper(root.right, list);
-    }
-
-    public static <E> void postorderListHelper(BinaryTreeNode<E> root, List<E> list) {
-        if (root == null) {
-            return;
-        }
-
-        postorderListHelper(root.left, list);
-        postorderListHelper(root.right, list);
-
-        list.add(root.data);
     }
 
     //aka Breadth First
