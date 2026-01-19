@@ -218,5 +218,5 @@ public class BinaryTreeHomework {
         IO.println();
 
         System.out.println("sum of binary tree: " + sum(improper_root) + "\n"); //30
-    }\
+    }
 }
