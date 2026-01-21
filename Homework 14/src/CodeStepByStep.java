@@ -11,7 +11,10 @@ public class CodeStepByStep {
 
     //Thoughts:
     //How can we make this better?
-    //
+    //TreeMap iterates from A-Z automatically.
+    //Pull from bottom of the TreeSet instead of searching Map. (NO, this is not # only TreeMap)
+    //Trying switching instead. From <String, Integer> do, <Integer, String>? (No, more than one family can't have the same count)
+
 
     public static String biggestFamily(String fileInput) throws IOException {
         Scanner scan = new Scanner(new File(fileInput));
