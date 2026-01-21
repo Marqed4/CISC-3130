@@ -31,11 +31,9 @@ public class CodeStepByStep {
         }
 
         scan.close();
-
         Collections.sort(famMembers);
-        Queue<String> peopleFromFile = new LinkedList<>(famMembers);
 
-        //find the largest family
+        //Find the largest family
         int largestFamCount = 0;
         for (Map.Entry<String, Integer> entry : fam.entrySet()) {
             if (entry.getValue() > largestFamCount) {
@@ -43,29 +41,23 @@ public class CodeStepByStep {
             }
         }
 
-
         for (Map.Entry<String, Integer> entry : fam.entrySet()) {
             if (entry.getValue() == largestFamCount) {
                 String familyName = entry.getKey();
 
                 System.out.print(familyName + " family: ");
-                int index = peopleFromFile.size();
 
-                //run through list of available names
-                while (index > 0) {
-                    index--;
+                //Create an iterable, that can be question to decide when the next new-line is appropriate
+                Iterator<String> iter = fam.keySet().iterator();
+                for (String person : famMembers) {
 
-                    //remove/add people from queue to preserve data struct
-                    String person = peopleFromFile.remove();
-                    peopleFromFile.add(person);
-
+                    //Take advantage of substring to section the name into valuable pieces
                     String firstName = person.substring(0, person.indexOf(" "));
                     String lastName = (person.substring(person.indexOf(" ") + 1));
 
-                    //compare & print those with the CURRENTLY INDEXED family name
+                    //Compare/print people with the CURRENTLY INDEXED family name
                     if (familyName.equals(lastName)) {
-
-                        if (!(index - 1 < 0)) {
+                        if (iter.hasNext()) {
                             System.out.print(firstName + " ");
                         } else {
                             System.out.print(firstName);
@@ -77,7 +69,6 @@ public class CodeStepByStep {
         }
         return "";
     }
-
 
     void main() throws IOException {
         biggestFamily("C:\\Users\\Derpe\\IdeaProjects\\3130\\Homework 14\\src\\WinterIsAlreadyHere.txt");
