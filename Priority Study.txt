@@ -1,6 +1,6 @@
 Phrase Test Analysis: Decreasing Priority
 
-Dequeue: Doubly-LinkedList: Methods & Implementation
+Dequeue: Doubly-LinkedList: Methods & Implementation ()
 Priority Queue: Heap: Max-Heap & Min-Heap Reviewal
 Binary Tree: Methods
 Binary Tree: In-order traversal, Pre-order, Post-order
@@ -16,3 +16,6 @@ Iterable Interface/ Iterator
 List Interface
 Load Factor Review
 Anonymous Class
+
+Solution:
+
