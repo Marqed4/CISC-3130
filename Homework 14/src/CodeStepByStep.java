@@ -75,7 +75,7 @@ public class CodeStepByStep {
     //File contains one friend relationship PER LINE consisting of two names.
     //Must return a collection.
     //How can you return a collection with the specified format without making a sub array? (It wouldn't be a Collection)
-    //Takes file directly, not String. (YES)
+    //Takes file directly, not String. (NO)
     //Wants a TreeMap<String, TreeSet<String>> not a TreeMap<String, ArrayList<String>> (Stupid, it could have specified.)
 
     //Thoughts:
