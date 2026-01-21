@@ -70,7 +70,52 @@ public class CodeStepByStep {
         return "";
     }
 
+    //Notes:
+    //File can only be scanned one and only one collection is allowed.
+    //File contains one friend relationship PER LINE consisting of two names.
+    //Must return a collection.
+    //How can you return a collection with the specified format without making a sub array? (It wouldn't be a Collection)
+    //Takes file directly, not String. (YES)
+    //Wants a TreeMap<String, TreeSet<String>> not a TreeMap<String, ArrayList<String>> (Stupid, it could have specified.)
+
+    //Thoughts:
+    //Printed format: "{Users=[friend]..." Friend:[User, User, User...]}
+    //How many lines per file? (Doesn't say)
+    //Find keys that share the same value(Friend)? (Was recommended in instructions)
+    //How can we make this better?
+
+    public static TreeMap<String, TreeSet<String>> friendList(String fileInput) throws IOException {
+        Scanner scan = new Scanner(new File(fileInput));
+
+        TreeMap<String, TreeSet<String>> sharedFriends = new TreeMap<>();
+
+        while (scan.hasNextLine()) {
+            String friend = scan.nextLine();
+            String user1 = friend.substring(0, friend.indexOf(" "));
+            String user2 = friend.substring(friend.indexOf(" ") + 1);
+
+            if (!sharedFriends.containsKey(user1)) {
+                sharedFriends.put(user1, new TreeSet<>());
+                sharedFriends.get(user1).add(user2);
+            } else {
+                sharedFriends.get(user1).add(user2);
+            }
+
+            if (sharedFriends.containsKey(user2)) {
+                sharedFriends.get(user2).add(user1);
+            } else {
+                sharedFriends.put(user2, new TreeSet<>());
+                sharedFriends.get(user2).add(user1);
+            }
+        }
+
+        scan.close();
+        return sharedFriends;
+    }
+
     void main() throws IOException {
         biggestFamily("C:\\Users\\Derpe\\IdeaProjects\\3130\\Homework 14\\src\\WinterIsAlreadyHere.txt");
+        System.out.println( "\n" + friendList("C:\\Users\\Derpe\\IdeaProjects\\3130\\Homework 14\\src\\LikeOnFaceBook.txt"));
+        System.out.println( "\n" + friendList("C:\\Users\\Derpe\\IdeaProjects\\3130\\Homework 14\\src\\LikeOnInstagram.txt"));
     }
 }
