@@ -141,7 +141,7 @@ public class MyDequeue<E> implements Deque3130<E>, Iterable<E> {
 
         System.out.println(test); //25, 30, 20, elements are added starting from the empty spots in the Dequeue
 
-        test.enqueue(35); //the addition triggers the resize
+        test.enqueue(35); //the addition triggers the resize because we are over capacity
 
         System.out.println(test); //20, 25, 30, 35
     }
