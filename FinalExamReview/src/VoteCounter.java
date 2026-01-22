@@ -45,7 +45,7 @@ public class VoteCounter {
     }
 }
 
-class Test {
+class Test1 {
     void main() throws FileNotFoundException {
 
         //C:\Users\Derpe\IdeaProjects\3130\FinalExamReview\FinalExamFolder2025\2024 U.S. Presidential Election 1 to 10,000.txt
@@ -59,7 +59,6 @@ class Test {
         while (file_scan.hasNextLine()) {
             votes.add(file_scan.nextLine());
         }
-
 
         summation_machine.count(votes);
         System.out.println(summation_machine.getWinner());
