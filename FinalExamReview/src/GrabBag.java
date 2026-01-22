@@ -48,7 +48,7 @@ class Test2 {
         record Popsicle(String flavor) {
             public String toString() {
                 if (flavor.equals("Squid")) {
-                    return flavor() + " is a questionable flavor";
+                    return flavor() + " is a questionable flavor for a popsicle";
                 }
                 return flavor() + " is a good flavor for a popsicle";
             }
