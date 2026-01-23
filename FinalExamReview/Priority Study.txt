@@ -4,24 +4,30 @@ Dequeue [Reviewed]
 Doubly-LinkedList: Methods & Implementation [Reviewed]
 Priority Queue: Heap: Max-Heap & Min-Heap Reviewal [Reviewed]
 Binary Tree: Methods [Reviewed]
-Binary Tree: In-order traversal, Pre-order, Post-order
-Selection Sort: Tracing
-Lambda Expressions
+Binary Tree: In-order traversal, Pre-order, Post-order [Reviewed]
+Lambda Expressions [Sub Comfort]
 Review Time-Complexity, Space-Complexity
-Selection Sort
+
+Selection Sort [Reviewed]
 Insertion Sort [Reviewed]
-Binary Sort 
-Map: Iteration [Reviewed]
+
+Binary Sort : 1st method : https://github.com/Marqed4/CISC-3130/blob/Home/Homework%203/src/SearchAndSortingAlgo.java
+
+Map: Iteration [Reviewed] : 
+Map.Entry<> : object reference.entrySet();
+for (E e : reference.keySet())
+for (E e : reference.values())
+
 Comparable Interface: Comparator
 Stack: Tracing [Reviewed]
-Appropriate use of compareTo
+Appropriate use of compareTo & comp
 Queue Tracing: Circular Queue [Reviewed]
 Iterable Interface/ Iterator
 List Interface [Reviewed]
 
 Load Factor Review [Reviewed] : 
-index = x % table.length; & 
-load factor = size(occupants) / table.length
+Find index : index = x % table.length;
+Determine load factor : load factor = size(occupants) / table.length
 
 Anonymous Class [Reviewed]
 
@@ -31,7 +37,14 @@ Cover Max Heap in 2025's 3130 Final Exam and by extension Min Heap's in BinaryTr
 Review Time Complexity Questions in 2025's 3130 Final Exam
 
 Review Sorting Algos :
+https://github.com/Marqed4/CISC-3130/blob/Home/Homework%203/src/SearchAndSortingAlgo.java
+
 https://www.codestepbystep.com/r/problem/view/java/sorting/insertionSort1 [Reviewed]
 https://www.codestepbystep.com/r/problem/view/java/sorting/insertionSort1 [Reviewed]
 https://www.codestepbystep.com/r/problem/view/java/sorting/selectionSort1 [Reviewed]
+
+Binary Tree: In-order traversal, Pre-order, Post-order : 
+https://www.codestepbystep.com/r/problem/view/cpp/collectionimpl/binarytreeptr/traversal1 [Reviewed]
+https://www.codestepbystep.com/r/problem/view/cpp/collectionimpl/binarytreeptr/traversal2 [Reviewed]
+https://www.codestepbystep.com/r/problem/view/cpp/collectionimpl/binarytreeptr/traversal3 [Reviewed]
 
