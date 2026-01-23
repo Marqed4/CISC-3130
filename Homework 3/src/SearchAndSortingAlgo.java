@@ -106,7 +106,7 @@ public static void insertionSort(int[] a) {
 
     public static void mergeSort(int[] a) {
         // for debugging:
-        // IO.println("sorting " + Arrays.toString(a));
+        // IO.println("sorting " + Arrays.toString(a));\
 
         // implicit base case:
         // if a.length <= 1, do nothing (already sorted)

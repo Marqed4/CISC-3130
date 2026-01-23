@@ -1,11 +1,17 @@
 import java.util.*;
 
-public class GrabBag<E> { //implements GrabBag<E>
+public interface GrabBag<E> {
+    void insert(E element);
+    E sample();
+    E remove();
+}
+
+class GrabBagArrayList<E> implements GrabBag<E> {
     List<E> list;
     int size = 0;
     Random rand = new Random();
 
-    public GrabBag() {
+    public GrabBagArrayList() {
         list = new ArrayList<>();
     }
 
@@ -54,7 +60,7 @@ class Test2 {
             }
         }
 
-        GrabBag<Popsicle> grabBag = new GrabBag<>();
+        GrabBagArrayList<Popsicle> grabBag = new GrabBagArrayList<>();
         grabBag.insert(new Popsicle("Vanilla"));
         grabBag.insert(new Popsicle("Strawberry"));
         grabBag.insert(new Popsicle("Bubblegum"));
